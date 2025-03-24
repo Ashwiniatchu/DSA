@@ -1,0 +1,92 @@
+package DSA;
+
+public class Circular_linked 
+{
+	Node last;
+class Node
+{
+	int data;
+	Node next=null;
+	
+	Node(int val)
+	{
+		data=val;
+		next=null;
+	}
+}
+Circular_linked()
+{
+	last=null;
+	
+}
+public void insertAtBegin(int val)
+{
+	Node newnode=new Node(val);
+	if(last==null)
+	{
+		last=newnode;
+		last.next=last;
+		
+	}
+	else
+	{
+		newnode.next=last;
+		last.next=newnode;
+
+		
+	}
+}
+public void display()
+{
+	Node temp=last.next;
+	Node temp1=last;
+	while(temp!=last)
+	{
+		System.out.println(temp.data+" ");
+		temp=temp.next;
+	
+	}
+	System.out.println(temp.data);
+	
+	}
+public void inserAtEnd(int val)
+{
+	Node newnode=new Node(val);
+	if(last==null)
+	{
+		last=newnode;
+		last.next=last;
+		
+	}
+	else
+	{
+		newnode.next=last;
+		last.next=newnode;
+}
+	
+	}
+public void deleteAtBegin()
+{
+	Node temp=last.next;
+	last.next=last.next.next;
+	temp.next=null;
+}
+public void deleteAtEnd()
+{
+	    if (last == null) {
+	        System.out.println("List is empty. Nothing to delete.");
+	        return;
+	    }
+	    if (last.next == last) {
+	        last = null; 
+	        return;
+	    }
+
+	    Node current = last.next; 
+	    while (current.next != last) {
+	        current = current.next;
+	    }
+	    current.next = last.next; 
+	    last = current; 
+	}
+}
